@@ -3,25 +3,25 @@ class ProtocolInvitation {
         this.guests = [];
         this.music = document.getElementById('protocolMusic');
         this.isMusicPlaying = false;
+        this.musicStarted = false;
         
         this.init();
         this.setupGuestForm();
         this.setupProgramList();
+        this.setupBackNavigation();
     }
     
     init() {
         this.loadGuestsFromStorage();
         this.renderGuestList();
         this.setupPhotoAnimation();
-        
-        // Устанавливаем имена для подписей
         this.setupSignatures();
     }
     
     setupGuestForm() {
         const addBtn = document.getElementById('addGuestBtn');
         const guestInput = document.getElementById('guestName');
-        const playMusicBtn = document.getElementById('playMusicBtn');
+        const musicBtn = document.getElementById('musicToggleBtn');
         
         if (addBtn) {
             addBtn.addEventListener('click', () => this.addGuest());
@@ -33,8 +33,8 @@ class ProtocolInvitation {
             });
         }
         
-        if (playMusicBtn) {
-            playMusicBtn.addEventListener('click', () => this.toggleMusic());
+        if (musicBtn) {
+            musicBtn.addEventListener('click', () => this.toggleMusic());
         }
         
         window.addEventListener('beforeunload', () => {
@@ -67,7 +67,6 @@ class ProtocolInvitation {
         const brideFullName = document.getElementById('brideFullName');
         const signBride = document.getElementById('signBride');
         
-        // Здесь можно задать реальные имена
         const groom = {
             surname: 'КАБЕЛЬ',
             name: 'ИМЯ',
@@ -84,8 +83,8 @@ class ProtocolInvitation {
         if (signGroom) signGroom.textContent = `${groom.surname} ${groom.name.charAt(0)}.${groom.patronymic.charAt(0)}.`;
         if (brideFullName) brideFullName.textContent = bride.fullName;
         if (signBride) signBride.textContent = bride.fullName.split(' ')[0] + ' ' + 
-            bride.fullName.split(' ')[1]?.charAt(0) + '.' + 
-            bride.fullName.split(' ')[2]?.charAt(0) + '.';
+            (bride.fullName.split(' ')[1]?.charAt(0) || '') + '.' + 
+            (bride.fullName.split(' ')[2]?.charAt(0) || '') + '.';
     }
     
     addGuest() {
@@ -169,23 +168,27 @@ class ProtocolInvitation {
     }
     
     toggleMusic() {
-        const btn = document.getElementById('playMusicBtn');
         if (!this.music) return;
         
         if (this.isMusicPlaying) {
             this.music.pause();
-            if (btn) btn.textContent = '♪ Включить саундтрек задержания';
-            if (btn) btn.style.background = 'none';
+            this.isMusicPlaying = false;
         } else {
             this.music.play().catch(e => {
-                alert('Нажмите на кнопку для воспроизведения музыки');
+                console.log('Не удалось воспроизвести');
             });
-            if (btn) btn.textContent = '■ Выключить саундтрек';
-            if (btn) btn.style.background = '#2c2c2c';
-            if (btn) btn.style.color = 'white';
+            this.isMusicPlaying = true;
+            this.musicStarted = true;
         }
         
-        this.isMusicPlaying = !this.isMusicPlaying;
+        this.updateMusicButton();
+    }
+    
+    updateMusicButton() {
+        const btn = document.getElementById('musicToggleBtn');
+        if (btn) {
+            btn.textContent = this.isMusicPlaying ? '🔊' : '🔇';
+        }
     }
     
     playBeep() {
@@ -223,27 +226,81 @@ class ProtocolInvitation {
             }, 200 + index * 150);
         });
     }
+    
+    setupBackNavigation() {
+        window.addEventListener('popstate', () => {
+            this.goBackToFirstPage();
+        });
+    }
+    
+    goBackToFirstPage() {
+        const page1 = document.getElementById('page1');
+        const page2 = document.getElementById('page2');
+        
+        if (page2 && page2.style.display === 'block') {
+            if (this.music && this.isMusicPlaying) {
+                this.music.pause();
+                this.isMusicPlaying = false;
+                this.updateMusicButton();
+            }
+            
+            page1.style.display = 'flex';
+            page1.classList.remove('fade-out');
+            page2.style.display = 'none';
+            page2.classList.remove('appear');
+        }
+    }
+    
+    startMusicOnPage2() {
+        const page2 = document.getElementById('page2');
+        if (page2 && page2.style.display === 'block' && !this.musicStarted) {
+            setTimeout(() => {
+                this.music.play().then(() => {
+                    this.isMusicPlaying = true;
+                    this.musicStarted = true;
+                    this.updateMusicButton();
+                }).catch(e => {
+                    console.log('Автовоспроизведение заблокировано');
+                });
+            }, 500);
+        }
+    }
 }
 
+// Запуск при загрузке
 document.addEventListener('DOMContentLoaded', () => {
-    new ProtocolInvitation();
+    const invitation = new ProtocolInvitation();
+    
+    const openBtn = document.getElementById('openCaseBtn');
+    const page1 = document.getElementById('page1');
+    const page2 = document.getElementById('page2');
+    
+    if (openBtn) {
+        openBtn.addEventListener('click', () => {
+            history.pushState(null, null, window.location.href);
+            page1.classList.add('fade-out');
+            page2.style.display = 'block';
+            page2.classList.add('appear');
+            
+            setTimeout(() => {
+                page1.style.display = 'none';
+                invitation.startMusicOnPage2();
+            }, 600);
+        });
+    }
     
     const style = document.createElement('style');
     style.textContent = `
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); background: rgba(139,0,0,0.1); }
+            100% { transform: scale(1); }
+        }
+        
         .remove-guest {
             font-size: 12px;
             background: #8b0000 !important;
             color: white !important;
         }
         
-        .remove-guest:hover {
-            background: #5a0000 !important;
-        }
-        
-        .program-item {
-            padding: 5px 0;
-            border-bottom: 1px dotted #ccc;
-        }
-    `;
-    document.head.appendChild(style);
-});
+        .remove-g

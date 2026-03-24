@@ -3,12 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Личное дело №007 | Протокол задержания</title>
+    <title>Личное дело №001 | Протокол задержания</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+    <!-- СТРАНИЦА 1: ЛИЧНОЕ ДЕЛО -->
+    <div id="page1" class="page1-screen">
+        <div class="page1-content">
+            <div class="page1-case-number">Личное дело № 001</div>
+            <div class="page1-title">о задержании гражданки<br>с целью последующего бракосочетания</div>
+            <button id="openCaseBtn" class="open-case-btn">ОТКРЫТО</button>
+        </div>
+    </div>
+
+    <!-- СТРАНИЦА 2: ПРОТОКОЛ И ВСЁ ОСТАЛЬНОЕ -->
+    <div id="page2" class="container" style="display: none;">
         
         <!-- Главный штамп -->
         <div class="stamp-main">
@@ -18,21 +28,18 @@
             НЕ ВСКРЫВАТЬ!
         </div>
 
-        <!-- Личное дело -->
+        <!-- Личное дело (маленькое) -->
         <div class="personal-case">
-            <div class="case-number">Личное дело № 007</div>
+            <div class="case-number">Личное дело № 001</div>
             <div class="case-title">О задержании гражданки с целью последующего бракосочетания</div>
-            <div class="case-stamp">ОТКРЫТЬ</div>
+            <div class="case-stamp">ОТКРЫТО</div>
         </div>
 
-        <!-- Шапка с женихом -->
+        <!-- Шапка протокола -->
         <div class="protocol-header">
             <div class="protocol-number">
-                ПРОТОКОЛ<br>
-                об административном задержании
-            </div>
-            <div class="protocol-sound">
-                🔊 Включи звук, для настроения
+                <div class="typewriter-text">ПРОТОКОЛ</div>
+                <div class="protocol-subtitle">об административном задержании</div>
             </div>
         </div>
 
@@ -98,7 +105,7 @@
             </div>
         </div>
 
-        <!-- I. МЕСТО ПРОВЕДЕНИЯ (римская цифра) -->
+        <!-- I. МЕСТО ПРОВЕДЕНИЯ -->
         <div class="protocol-section">
             <div class="section-title">I. МЕСТО ПРОВЕДЕНИЯ ПРОЦЕССУАЛЬНЫХ ДЕЙСТВИЙ</div>
             <div class="section-content">
@@ -108,7 +115,7 @@
             </div>
         </div>
 
-        <!-- II. ПРОГРАММА (римская цифра) -->
+        <!-- II. ПРОГРАММА -->
         <div class="protocol-section">
             <div class="section-title">II. ПРОГРАММА ПРОЦЕССУАЛЬНЫХ ДЕЙСТВИЙ</div>
             <div class="section-content">
@@ -116,7 +123,7 @@
             </div>
         </div>
 
-        <!-- III. ФОРМА ОДЕЖДЫ (римская цифра) -->
+        <!-- III. ФОРМА ОДЕЖДЫ -->
         <div class="protocol-section">
             <div class="section-title">III. ФОРМА ОДЕЖДЫ ДЛЯ ПОНЯТЫХ (ДРЕСС-КОД)</div>
             <div class="section-content">
@@ -125,7 +132,7 @@
             </div>
         </div>
 
-        <!-- IV. ПОРЯДОК ПЕРЕДАЧИ МАТЕРИАЛЬНЫХ ДОКАЗАТЕЛЬСТВ (римская цифра) -->
+        <!-- IV. ПОРЯДОК ПЕРЕДАЧИ -->
         <div class="protocol-section">
             <div class="section-title">IV. ПОРЯДОК ПЕРЕДАЧИ МАТЕРИАЛЬНЫХ ДОКАЗАТЕЛЬСТВ</div>
             <div class="section-content">
@@ -139,7 +146,7 @@
             </div>
         </div>
 
-        <!-- V. ДОПОЛНИТЕЛЬНЫЕ РАСПОРЯЖЕНИЯ (римская цифра) -->
+        <!-- V. ДОПОЛНИТЕЛЬНЫЕ РАСПОРЯЖЕНИЯ -->
         <div class="protocol-section">
             <div class="section-title">V. ДОПОЛНИТЕЛЬНЫЕ РАСПОРЯЖЕНИЯ</div>
             <div class="section-content">
@@ -147,7 +154,7 @@
             </div>
         </div>
 
-        <!-- Форма для гостей (персонализация) -->
+        <!-- Форма для гостей -->
         <div class="protocol-section guest-form">
             <div class="section-title">VI. ЗАПОЛНЯЕТСЯ НА КАЖДОГО ПОНЯТОГО ПЕРСОНАЛЬНО</div>
             <div class="form-group">
@@ -174,9 +181,9 @@
             </div>
         </div>
 
-       <!-- Музыка -->
+        <!-- Музыка с кнопкой-динамиком -->
         <div class="music-control">
-            <button id="playMusicBtn" class="music-btn">♪ Включить саундтрек задержания</button>
+            <button id="musicToggleBtn" class="music-toggle-btn">🔊</button>
             <audio id="protocolMusic" loop>
                 <source src="assets/music/protocol.mp3" type="audio/mpeg">
             </audio>
@@ -185,6 +192,4 @@
 
     <script src="js/main.js"></script>
 </body>
-</html>
-</audio>
 </html>
