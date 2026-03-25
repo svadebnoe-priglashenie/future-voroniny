@@ -14,19 +14,19 @@
             <div class="page-inner">
                 <div class="case-number-main">Личное дело № 007</div>
                 <div class="case-title-main">о задержании гражданки<br>с целью последующего бракосочетания</div>
-                <button id="openCaseBtn" class="stamp-btn">ОТКРЫТО</button>
+                <button id="openCaseBtn" class="stamp-btn-inline">ОТКРЫТЬ</button>
             </div>
         </div>
-
         <!-- СТРАНИЦА 2: ПРОТОКОЛ -->
         <div id="page2" class="page page-back" style="display: none;">
             <div class="page-inner">
                 <div class="container">
                     <!-- Кнопка звука -->
                     <button id="musicToggleBtn" class="music-glass-btn">🔊</button>
-                    <audio id="protocolMusic">
-                        <source src="assets/music/protocol.mp3" type="audio/mpeg">
-                    </audio>
+                   <audio id="protocolMusic">
+    <source src="assets/music/protocol.mp3" type="audio/mpeg">
+    <source src="assets/music/music2.mp3" type="audio/mpeg">
+</audio>
 
                     <!-- Штамп -->
                     <div class="stamp-main">
@@ -42,7 +42,7 @@
                         <div class="protocol-sub-text">об административном задержании</div>
                     </div>
 
-                    <!-- Жених -->
+                    <!-- Уполномоченное лицо с фото и квадратиками -->
                     <div class="officer-section">
                         <div class="officer-with-photo">
                             <div class="officer-info">
@@ -64,7 +64,7 @@
                         </div>
                     </div>
 
-                    <!-- Невеста -->
+                    <!-- Задержанная гражданка (как у жениха) -->
                     <div class="officer-section">
                         <div class="officer-with-photo">
                             <div class="officer-info">
@@ -87,12 +87,7 @@
                     </div>
 
                     <!-- Преступление любви -->
-                    <div class="crime-section">
-                        <div class="crime-title">ПРЕСТУПЛЕНИЕ ЛЮБВИ</div>
-                        <div class="crime-number">НАРУШЕНИЕ 42682</div>
-                        <div class="crime-description">
-                            Действуя по предварительному взаимному согласию, вступили в сговор с целью создания семьи, совместного ведения хозяйства и пожизненного союза.
-                        </div>
+
                         <div class="circumstances-title">В ходе проверки выявлены следующие обстоятельства:</div>
                         <ul class="circumstances-list">
                             <li>незаконное завладение сердцем;</li>
@@ -198,8 +193,7 @@
         <!-- Тень при перелистывании -->
         <div id="flipShadow" class="flip-shadow"></div>
     </div>
-
-    <!-- POP-UP ПРЕДУПРЕЖДЕНИЕ -->
+<!-- POP-UP ПРЕДУПРЕЖДЕНИЕ -->
     <div id="popupOverlay" class="popup-overlay">
         <div class="popup-container">
             <div class="popup-icon">🔊</div>
@@ -213,7 +207,6 @@
             </div>
         </div>
     </div>
-
     <script src="js/main.js"></script>
 </body>
 </html>

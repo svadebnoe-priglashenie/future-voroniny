@@ -150,32 +150,78 @@ body {
     text-align: center;
 }
 
+/* Кнопка-печать (прямоугольная, как в документах) */
 .stamp-btn {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 220px;
-    height: 66px;
+    bottom: 40px;
+    right: 40px;
+    width: 200px;
+    height: 80px;
     background: none;
     color: #8b0000;
     border: 3px solid #8b0000;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 28px;
+    font-weight: bold;
     cursor: pointer;
-    letter-spacing: 3px;
-    transform: rotate(-45deg);
+    letter-spacing: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s;
-    box-shadow: 4px 4px 12px rgba(139,0,0,0.2);
+    transition: all 0.2s ease;
     z-index: 100;
-    background: white;
+    text-transform: uppercase;
+    
+    /* Прямоугольная форма */
+    border-radius: 0;
+    
+    /* Эффект неровной печати */
+    box-shadow: 
+        2px 2px 0 rgba(139,0,0,0.3),
+        -1px -1px 0 rgba(139,0,0,0.2),
+        inset 0 0 0 1px rgba(139,0,0,0.1);
+    
+    /* Неровные края (эффект "оттиска") */
+    transform: rotate(-3deg);
+}
+
+/* Эффект размытых краёв как у печати */
+.stamp-btn::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid rgba(139, 0, 0, 0.3);
+    filter: blur(1px);
+    z-index: -1;
+}
+
+/* Эффект "потёртости" печати */
+.stamp-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(139,0,0,0.05) 0px,
+        rgba(139,0,0,0.05) 2px,
+        transparent 2px,
+        transparent 6px
+    );
+    pointer-events: none;
 }
 
 .stamp-btn:hover {
-    background: #8b0000;
-    color: white;
+    transform: rotate(-2deg) scale(1.02);
+    border-width: 3px;
+    box-shadow: 
+        3px 3px 0 rgba(139,0,0,0.4),
+        -2px -2px 0 rgba(139,0,0,0.2);
 }
 
 .music-glass-btn {
@@ -631,4 +677,84 @@ body {
     .officer-photo img {
         max-width: 70px;
     }
+    @media (max-width: 768px) {
+    .stamp-btn-inline {
+        width: 160px;
+        height: 64px;
+        font-size: 22px;
+        margin: 30px auto 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .stamp-btn-inline {
+        width: 140px;
+        height: 56px;
+        font-size: 18px;
+        margin: 25px auto 0 auto;
+    }
+}
+}
+/* Кнопка-печать под текстом (не фиксированная) */
+.stamp-btn-inline {
+    width: 200px;
+    height: 80px;
+    background: none;
+    color: #8b0000;
+    border: 3px solid #8b0000;
+    font-family: 'Courier New', monospace;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    margin: 40px auto 0 auto;
+    
+    /* Прямоугольная форма */
+    border-radius: 0;
+    
+    /* Эффект неровной печати */
+    transform: rotate(-3deg);
+    box-shadow: 3px 3px 0 rgba(139,0,0,0.2);
+}
+
+/* Эффект размытых краёв */
+.stamp-btn-inline::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid rgba(139, 0, 0, 0.3);
+    filter: blur(1px);
+    z-index: -1;
+}
+
+/* Эффект "потёртости" */
+.stamp-btn-inline::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(139,0,0,0.05) 0px,
+        rgba(139,0,0,0.05) 2px,
+        transparent 2px,
+        transparent 6px
+    );
+    pointer-events: none;
+}
+
+.stamp-btn-inline:hover {
+    transform: rotate(-2deg) scale(1.02);
+    border-width: 3px;
+    box-shadow: 4px 4px 0 rgba(139,0,0,0.3);
 }
