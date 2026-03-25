@@ -17,16 +17,16 @@
                 <button id="openCaseBtn" class="stamp-btn-inline">ОТКРЫТЬ</button>
             </div>
         </div>
+
         <!-- СТРАНИЦА 2: ПРОТОКОЛ -->
         <div id="page2" class="page page-back" style="display: none;">
             <div class="page-inner">
                 <div class="container">
                     <!-- Кнопка звука -->
                     <button id="musicToggleBtn" class="music-glass-btn">🔊</button>
-                   <audio id="protocolMusic">
-    <source src="assets/music/protocol.mp3" type="audio/mpeg">
-    <source src="assets/music/music2.mp3" type="audio/mpeg">
-</audio>
+                    <audio id="protocolMusic">
+                        <source src="assets/music/protocol.mp3" type="audio/mpeg">
+                    </audio>
 
                     <!-- Штамп -->
                     <div class="stamp-main">
@@ -34,6 +34,7 @@
                         06.06.2026<br>
                         № 007/42682<br>
                         НЕ ВСКРЫВАТЬ!
+                        (потом уберу его или закину куда надо)
                     </div>
 
                     <!-- ПРОТОКОЛ -->
@@ -42,7 +43,7 @@
                         <div class="protocol-sub-text">об административном задержании</div>
                     </div>
 
-                    <!-- Уполномоченное лицо с фото и квадратиками -->
+                    <!-- Жених -->
                     <div class="officer-section">
                         <div class="officer-with-photo">
                             <div class="officer-info">
@@ -64,7 +65,7 @@
                         </div>
                     </div>
 
-                    <!-- Задержанная гражданка (как у жениха) -->
+                    <!-- Невеста -->
                     <div class="officer-section">
                         <div class="officer-with-photo">
                             <div class="officer-info">
@@ -87,7 +88,12 @@
                     </div>
 
                     <!-- Преступление любви -->
-
+                    <div class="crime-section">
+                        <div class="crime-title">ПРЕСТУПЛЕНИЕ ЛЮБВИ</div>
+                        <div class="crime-number">НАРУШЕНИЕ 42682</div>
+                        <div class="crime-description">
+                            Действуя по предварительному взаимному согласию, вступили в сговор с целью создания семьи, совместного ведения хозяйства и пожизненного союза.
+                        </div>
                         <div class="circumstances-title">В ходе проверки выявлены следующие обстоятельства:</div>
                         <ul class="circumstances-list">
                             <li>незаконное завладение сердцем;</li>
@@ -102,23 +108,15 @@
                         </div>
                     </div>
 
-                    <!-- Фотогалерея -->
-                    <div class="photo-gallery">
-                        <div class="photo-frame">
-                            <img src="assets/photos/couple-1.jpg" alt="Фото пары">
-                        </div>
-                        <div class="photo-frame">
-                            <img src="assets/photos/couple-2.jpg" alt="Фото места">
-                        </div>
-                    </div>
-
-                    <!-- I. МЕСТО ПРОВЕДЕНИЯ -->
+                    <!-- I. МЕСТО ПРОВЕДЕНИЯ С ФОТО -->
                     <div class="protocol-section">
                         <div class="section-title">I. МЕСТО ПРОВЕДЕНИЯ</div>
                         <div class="section-content">
                             Торжественное празднование задержания состоится по адресу:<br>
-                            <strong>"Замечаний вам" Спикеры</strong><br>
-                            KAT DEMCHENKOO
+                            <strong>Санкт-Петербург, проспект Стачек, 45</strong>
+                        </div>
+                        <div class="venue-photo">
+                            <img src="assets/photos/venue.jpg" alt="Место проведения">
                         </div>
                     </div>
 
@@ -160,9 +158,23 @@
                         </div>
                     </div>
 
-                    <!-- Форма для гостей -->
+                    <!-- Форма для гостей с цветовой гаммой -->
                     <div class="protocol-section guest-form">
                         <div class="section-title">VI. ЗАПОЛНЯЕТСЯ НА КАЖДОГО ПОНЯТОГО</div>
+                        
+                        <!-- Цветовая гамма -->
+                        <div class="color-palette">
+                            <div class="color-title">ЦВЕТОВАЯ ГАММА МЕРОПРИЯТИЯ</div>
+                            <div class="color-swatches">
+                                <div class="color-swatch" style="background: #F5E6D3;"></div>
+                                <div class="color-swatch" style="background: #D4B8A4;"></div>
+                                <div class="color-swatch" style="background: #B87C4F;"></div>
+                                <div class="color-swatch" style="background: #8B5A2B;"></div>
+                                <div class="color-swatch" style="background: #5D3A1A;"></div>
+                            </div>
+                            <div class="color-note">Бежевые и шоколадные оттенки</div>
+                        </div>
+                        
                         <div class="form-group">
                             <label for="guestName">ФИО задерживаемого гостя:</label>
                             <input type="text" id="guestName" placeholder="ФАМИЛИЯ ИМЯ ОТЧЕСТВО">
@@ -171,7 +183,7 @@
                         <div id="guestListDisplay" class="guest-list"></div>
                     </div>
 
-                    <!-- Подписи -->
+                    <!-- Подписи (без свидетеля) -->
                     <div class="protocol-section">
                         <div class="section-title">VII. ПОДПИСИ СТОРОН</div>
                         <div class="signatures">
@@ -180,9 +192,6 @@
                             </div>
                             <div class="signature-line">
                                 Задержанная: _______________ /<span id="signBride">Устинова А.М.</span>/
-                            </div>
-                            <div class="signature-line">
-                                Должностное лицо: _______________ /Свидетель/
                             </div>
                         </div>
                     </div>
@@ -193,7 +202,8 @@
         <!-- Тень при перелистывании -->
         <div id="flipShadow" class="flip-shadow"></div>
     </div>
-<!-- POP-UP ПРЕДУПРЕЖДЕНИЕ -->
+
+    <!-- POP-UP ПРЕДУПРЕЖДЕНИЕ -->
     <div id="popupOverlay" class="popup-overlay">
         <div class="popup-container">
             <div class="popup-icon">🔊</div>
@@ -203,10 +213,11 @@
                 Пожалуйста, убедитесь, что звук на вашем устройстве настроен комфортно.
             </div>
             <div class="popup-buttons">
-                <button id="closePopupBtn" class="popup-btn">ПРИНЯТО К СВЕДЕНИЮ</button>
+                <button id="closePopupBtn" class="popup-btn" onclick="document.getElementById('popupOverlay').style.display='none'">ПРИНЯТО К СВЕДЕНИЮ</button>
             </div>
         </div>
     </div>
+
     <script src="js/main.js"></script>
 </body>
 </html>

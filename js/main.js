@@ -333,7 +333,7 @@ class ProtocolInvitation {
     }
     
     setupPhotoAnimation() {
-        document.querySelectorAll('.photo-frame').forEach((photo, i) => {
+        document.querySelectorAll('.venue-photo img, .officer-photo img').forEach((photo, i) => {
             photo.style.opacity = '0';
             photo.style.transform = 'translateY(20px)';
             setTimeout(() => {

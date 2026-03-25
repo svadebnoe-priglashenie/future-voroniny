@@ -134,6 +134,7 @@ body {
     padding: 20px;
 }
 
+/* СТИЛИ ДЛЯ ПЕРВОЙ СТРАНИЦЫ */
 .case-number-main {
     font-size: 36px;
     font-weight: bold;
@@ -145,16 +146,13 @@ body {
 .case-title-main {
     font-size: 24px;
     font-style: italic;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     line-height: 1.4;
     text-align: center;
 }
 
-/* Кнопка-печать (прямоугольная, как в документах) */
-.stamp-btn {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
+/* Кнопка под текстом */
+.stamp-btn-inline {
     width: 200px;
     height: 80px;
     background: none;
@@ -169,24 +167,15 @@ body {
     align-items: center;
     justify-content: center;
     transition: all 0.2s ease;
-    z-index: 100;
     text-transform: uppercase;
-    
-    /* Прямоугольная форма */
+    margin: 20px auto 0 auto;
     border-radius: 0;
-    
-    /* Эффект неровной печати */
-    box-shadow: 
-        2px 2px 0 rgba(139,0,0,0.3),
-        -1px -1px 0 rgba(139,0,0,0.2),
-        inset 0 0 0 1px rgba(139,0,0,0.1);
-    
-    /* Неровные края (эффект "оттиска") */
     transform: rotate(-3deg);
+    box-shadow: 3px 3px 0 rgba(139,0,0,0.2);
+    position: relative;
 }
 
-/* Эффект размытых краёв как у печати */
-.stamp-btn::before {
+.stamp-btn-inline::before {
     content: "";
     position: absolute;
     top: -2px;
@@ -198,8 +187,7 @@ body {
     z-index: -1;
 }
 
-/* Эффект "потёртости" печати */
-.stamp-btn::after {
+.stamp-btn-inline::after {
     content: "";
     position: absolute;
     top: 0;
@@ -216,14 +204,12 @@ body {
     pointer-events: none;
 }
 
-.stamp-btn:hover {
+.stamp-btn-inline:hover {
     transform: rotate(-2deg) scale(1.02);
-    border-width: 3px;
-    box-shadow: 
-        3px 3px 0 rgba(139,0,0,0.4),
-        -2px -2px 0 rgba(139,0,0,0.2);
+    box-shadow: 4px 4px 0 rgba(139,0,0,0.3);
 }
 
+/* Музыкальная кнопка */
 .music-glass-btn {
     position: fixed;
     top: 20px;
@@ -249,6 +235,7 @@ body {
     background: rgba(0,0,0,0.1);
 }
 
+/* Штамп */
 .stamp-main {
     font-family: 'Press Start 2P', cursive;
     font-size: 8px;
@@ -261,6 +248,7 @@ body {
     margin-bottom: 20px;
 }
 
+/* ПРОТОКОЛ */
 .protocol-title {
     text-align: center;
     margin: 30px 0 40px 0;
@@ -280,6 +268,7 @@ body {
     color: #333;
 }
 
+/* Квадратики */
 .square-field {
     display: inline-block;
     background: white;
@@ -297,6 +286,7 @@ body {
     min-width: 200px;
 }
 
+/* Фото жениха и невесты */
 .officer-with-photo {
     display: flex;
     gap: 20px;
@@ -347,6 +337,7 @@ body {
     gap: 8px;
 }
 
+/* Преступление любви */
 .crime-section {
     margin: 20px 0;
     padding: 15px 0;
@@ -388,24 +379,22 @@ body {
     border-top: 1px dashed #ccc;
 }
 
-.photo-gallery {
-    display: flex;
-    gap: 15px;
-    margin: 20px 0;
-    flex-wrap: wrap;
+/* Фото места проведения */
+.venue-photo {
+    margin-top: 20px;
+    text-align: center;
 }
 
-.photo-frame {
-    flex: 1;
-    padding: 4px;
-}
-
-.photo-frame img {
+.venue-photo img {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
+    max-width: 500px;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
+/* Секции */
 .protocol-section {
     margin: 20px 0;
     padding: 12px 0;
@@ -423,6 +412,45 @@ body {
     line-height: 1.5;
 }
 
+/* Цветовая гамма */
+.color-palette {
+    margin: 20px 0;
+    padding: 15px;
+    background: #fafafa;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.color-title {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.color-swatches {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.color-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.color-note {
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Форма гостей */
 .guest-form {
     background: white;
 }
@@ -457,8 +485,10 @@ body {
 .guest-item {
     padding: 8px 0;
     font-size: 13px;
+    border-bottom: 1px dashed #eee;
 }
 
+/* Подписи */
 .signatures {
     margin-top: 15px;
 }
@@ -554,17 +584,6 @@ body {
     }
 }
 
-@keyframes popupFadeOut {
-    from {
-        opacity: 1;
-        visibility: visible;
-    }
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
 /* Адаптивность */
 @media (max-width: 768px) {
     .page-inner {
@@ -578,16 +597,14 @@ body {
     
     .case-title-main {
         font-size: 18px;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
     
-    .stamp-btn {
-        width: 180px;
-        height: 54px;
-        font-size: 16px;
-        bottom: 20px;
-        right: 20px;
-        transform: rotate(-40deg);
+    .stamp-btn-inline {
+        width: 160px;
+        height: 64px;
+        font-size: 22px;
+        margin: 20px auto 0 auto;
     }
     
     .protocol-main-text {
@@ -632,8 +649,13 @@ body {
         min-width: auto;
     }
     
-    .photo-frame img {
-        height: 140px;
+    .venue-photo img {
+        max-width: 100%;
+    }
+    
+    .color-swatch {
+        width: 35px;
+        height: 35px;
     }
     
     .container {
@@ -664,10 +686,11 @@ body {
         font-size: 22px;
     }
     
-    .stamp-btn {
-        width: 150px;
-        height: 48px;
-        font-size: 14px;
+    .stamp-btn-inline {
+        width: 140px;
+        height: 56px;
+        font-size: 18px;
+        margin: 15px auto 0 auto;
     }
     
     .protocol-main-text {
@@ -677,84 +700,9 @@ body {
     .officer-photo img {
         max-width: 70px;
     }
-    @media (max-width: 768px) {
-    .stamp-btn-inline {
-        width: 160px;
-        height: 64px;
-        font-size: 22px;
-        margin: 30px auto 0 auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .stamp-btn-inline {
-        width: 140px;
-        height: 56px;
-        font-size: 18px;
-        margin: 25px auto 0 auto;
-    }
-}
-}
-/* Кнопка-печать под текстом (не фиксированная) */
-.stamp-btn-inline {
-    width: 200px;
-    height: 80px;
-    background: none;
-    color: #8b0000;
-    border: 3px solid #8b0000;
-    font-family: 'Courier New', monospace;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    letter-spacing: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-    text-transform: uppercase;
-    margin: 40px auto 0 auto;
     
-    /* Прямоугольная форма */
-    border-radius: 0;
-    
-    /* Эффект неровной печати */
-    transform: rotate(-3deg);
-    box-shadow: 3px 3px 0 rgba(139,0,0,0.2);
-}
-
-/* Эффект размытых краёв */
-.stamp-btn-inline::before {
-    content: "";
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    border: 2px solid rgba(139, 0, 0, 0.3);
-    filter: blur(1px);
-    z-index: -1;
-}
-
-/* Эффект "потёртости" */
-.stamp-btn-inline::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: repeating-linear-gradient(
-        45deg,
-        rgba(139,0,0,0.05) 0px,
-        rgba(139,0,0,0.05) 2px,
-        transparent 2px,
-        transparent 6px
-    );
-    pointer-events: none;
-}
-
-.stamp-btn-inline:hover {
-    transform: rotate(-2deg) scale(1.02);
-    border-width: 3px;
-    box-shadow: 4px 4px 0 rgba(139,0,0,0.3);
+    .color-swatch {
+        width: 30px;
+        height: 30px;
+    }
 }
