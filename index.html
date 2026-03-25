@@ -2,192 +2,149 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Личное дело №001 | Протокол задержания</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- СТРАНИЦА 1: ЛИЧНОЕ ДЕЛО -->
-    <div id="page1" class="page1-screen">
-        <div class="page1-content">
-            <div class="page1-case-number">Личное дело № 001</div>
-            <div class="page1-title">о задержании гражданки<br>с целью последующего бракосочетания</div>
-            <button id="openCaseBtn" class="open-case-btn">ОТКРЫТО</button>
+    <div class="book-container">
+        <!-- Страница 1 (передняя) -->
+        <div id="page1" class="page page-front">
+            <div class="page-inner">
+                <div class="case-number-main">Личное дело № 001</div>
+                <div class="case-title-main">о задержании гражданки<br>с целью последующего бракосочетания</div>
+                <button id="openCaseBtn" class="stamp-btn">ОТКРЫТО</button>
+            </div>
         </div>
-    </div>
 
-    <!-- СТРАНИЦА 2: ПРОТОКОЛ И ВСЁ ОСТАЛЬНОЕ -->
-    <div id="page2" class="container" style="display: none;">
+        <!-- Страница 2 (задняя) -->
+        <div id="page2" class="page page-back" style="display: none;">
+            <div class="page-inner">
+                <div class="container">
+                    <button id="musicToggleBtn" class="music-glass-btn">🔊</button>
+                    <audio id="protocolMusic" loop>
+                        <source src="assets/music/protocol.mp3" type="audio/mpeg">
+                    </audio>
+
+                    <div class="stamp-main">
+                        ВЕЩЕСТВЕННОЕ ДОКАЗАТЕЛЬСТВО<br>
+                        26.06.2026<br>
+                        № 001/42682<br>
+                        НЕ ВСКРЫВАТЬ!
+                    </div>
+
+                    <div class="personal-case">
+                        <div class="case-number">Личное дело № 001</div>
+                        <div class="case-title">О задержании гражданки с целью последующего бракосочетания</div>
+                        <div class="case-stamp">ОТКРЫТО</div>
+                    </div>
+
+                    <div class="protocol-header">
+                        <div class="protocol-number">
+                            <div class="typewriter-text">ПРОТОКОЛ</div>
+                            <div class="protocol-subtitle">об административном задержании</div>
+                        </div>
+                    </div>
+
+                    <div class="officer-section">
+                        <div class="officer-text">Я, уполномоченное лицо, гражданин</div>
+                        <div class="officer-name">
+                            <div class="name-line">ФАМИЛИЯ: <span class="name-value" id="groomSurname">КАБЕЛЬ</span></div>
+                            <div class="name-line">ИМЯ: <span class="name-value" id="groomName">ИМЯ</span></div>
+                            <div class="name-line">ОТЧЕСТВО: <span class="name-value" id="groomPatronymic">ОТЧЕСТВО</span></div>
+                        </div>
+                        <div class="officer-text">Действуя на основании личных намерений, устойчивых чувств и окончательного решения о создании семьи, произвел задержание гражданки:</div>
+                    </div>
+
+                    <div class="couple-names-animation">
+                        <div class="name-card name-bride" id="brideName">
+                            ЗАДЕРЖАННАЯ: <span class="name-value" id="brideFullName">ФАМИЛИЯ ИМЯ ОТЧЕСТВО</span>
+                        </div>
+                    </div>
+
+                    <div class="birth-section">
+                        <div class="birth-line">НАРОЖДЕНИЕ</div>
+                        <div class="birth-names">
+                            <div>Фамилия: <span class="empty-field">__________</span></div>
+                            <div>Имя: <span class="empty-field">__________</span></div>
+                        </div>
+                    </div>
+
+                    <div class="crime-section">
+                        <div class="crime-title">ПРЕСТУПЛЕНИЕ ЛЮБВИ</div>
+                        <div class="crime-number">НАРУШЕНИЕ 42682</div>
+                        <div class="crime-description">
+                            Действуя по предварительному взаимному согласию, вступили в сговор с целью создания семьи, совместного ведения хозяйства и пожизненного союза.
+                        </div>
+                        <div class="circumstances-title">В ходе проверки выявлены следующие обстоятельства:</div>
+                        <ul class="circumstances-list">
+                            <li>незаконное завладение сердцем;</li>
+                            <li>систематическое присутствие в мыслях;</li>
+                            <li>планирование совместного будущего;</li>
+                            <li>намерение обменяться кольцами;</li>
+                            <li>отсутствие сопротивления задержанию.</li>
+                        </ul>
+                        <div class="resolution">
+                            <strong>[СОСТАНОВЛЕНО]</strong><br>
+                            Назначить процедуру официального бракосочетания на «26» июля 2026 г.
+                        </div>
+                    </div>
+
+                    <div class="photo-gallery">
+                        <div class="photo-frame"><img src="assets/photos/couple-1.jpg" alt="Фото"></div>
+                        <div class="photo-frame"><img src="assets/photos/couple-2.jpg" alt="Фото"></div>
+                    </div>
+
+                    <div class="protocol-section">
+                        <div class="section-title">I. МЕСТО ПРОВЕДЕНИЯ</div>
+                        <div class="section-content">Торжественное празднование задержания состоится по адресу:<br><strong>"Замечаний вам" Спикеры</strong><br>KAT DEMCHENKOO</div>
+                    </div>
+
+                    <div class="protocol-section">
+                        <div class="section-title">II. ПРОГРАММА</div>
+                        <div class="section-content"><div id="programList"></div></div>
+                    </div>
+
+                    <div class="protocol-section">
+                        <div class="section-title">III. ФОРМА ОДЕЖДЫ</div>
+                        <div class="section-content">В целях соблюдения праздничной дисциплины предписывается: стиль классический, цветовая директива от бежевых до шоколадных оттенков.</div>
+                    </div>
+
+                    <div class="protocol-section">
+                        <div class="section-title">IV. ПОРЯДОК ПЕРЕДАЧИ</div>
+                        <div class="section-content">В ходе предварительной проверки установлено, что молодая семья обеспечена предметами быта. В связи с этим разрешается передача подарков исключительно в денежной форме. Средства будут направлены на развитие совместной стратегии и укрепление материально-технической базы семьи. Передача цветочной продукции не требуется.</div>
+                    </div>
+
+                    <div class="protocol-section">
+                        <div class="section-title">V. ДОПОЛНИТЕЛЬНЫЕ РАСПОРЯЖЕНИЯ</div>
+                        <div class="section-content">1. В целях соблюдения регламента мероприятия и обеспечения контролируемой праздничной обстановки постановлено: лица, не достигшие совершеннолетия, к участию в мероприятии не привлекаются.</div>
+                    </div>
+
+                    <div class="protocol-section guest-form">
+                        <div class="section-title">VI. ЗАПОЛНЯЕТСЯ НА КАЖДОГО ПОНЯТОГО</div>
+                        <div class="form-group">
+                            <label for="guestName">ФИО задерживаемого гостя:</label>
+                            <input type="text" id="guestName" placeholder="ФАМИЛИЯ ИМЯ ОТЧЕСТВО">
+                            <button id="addGuestBtn" class="protocol-btn">Внести в протокол</button>
+                        </div>
+                        <div id="guestListDisplay" class="guest-list"></div>
+                    </div>
+
+                    <div class="protocol-section">
+                        <div class="section-title">VII. ПОДПИСИ СТОРОН</div>
+                        <div class="signatures">
+                            <div class="signature-line">Задержанный: _______________ /<span id="signGroom">Кабель И.О.</span>/</div>
+                            <div class="signature-line">Задержанная: _______________ /<span id="signBride">Фамилия И.О.</span>/</div>
+                            <div class="signature-line">Должностное лицо: _______________ /Свидетель/</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         
-        <!-- Главный штамп -->
-        <div class="stamp-main">
-            ВЕЩЕСТВЕННОЕ ДОКАЗАТЕЛЬСТВО<br>
-            26.06.2026<br>
-            № 001/42682<br>
-            НЕ ВСКРЫВАТЬ!
-        </div>
-
-        <!-- Личное дело (маленькое) -->
-        <div class="personal-case">
-            <div class="case-number">Личное дело № 001</div>
-            <div class="case-title">О задержании гражданки с целью последующего бракосочетания</div>
-            <div class="case-stamp">ОТКРЫТО</div>
-        </div>
-
-        <!-- Шапка протокола -->
-        <div class="protocol-header">
-            <div class="protocol-number">
-                <div class="typewriter-text">ПРОТОКОЛ</div>
-                <div class="protocol-subtitle">об административном задержании</div>
-            </div>
-        </div>
-
-        <!-- Уполномоченное лицо -->
-        <div class="officer-section">
-            <div class="officer-text">
-                Я, уполномоченное лицо, гражданин
-            </div>
-            <div class="officer-name">
-                <div class="name-line">ФАМИЛИЯ: <span class="name-value" id="groomSurname">КАБЕЛЬ</span></div>
-                <div class="name-line">ИМЯ: <span class="name-value" id="groomName">ИМЯ</span></div>
-                <div class="name-line">ОТЧЕСТВО: <span class="name-value" id="groomPatronymic">ОТЧЕСТВО</span></div>
-            </div>
-            <div class="officer-text">
-                Действуя на основании личных намерений, устойчивых чувств и окончательного решения о создании семьи, произвел задержание гражданки:
-            </div>
-        </div>
-
-        <!-- Задержанная гражданка (анимированное выкатывание) -->
-        <div class="couple-names-animation">
-            <div class="name-card name-bride" id="brideName">
-                ЗАДЕРЖАННАЯ: <span class="name-value" id="brideFullName">ФАМИЛИЯ ИМЯ ОТЧЕСТВО</span>
-            </div>
-        </div>
-
-        <!-- Информация о рождении -->
-        <div class="birth-section">
-            <div class="birth-line">НАРОЖДЕНИЕ</div>
-            <div class="birth-names">
-                <div>Фамилия: <span class="empty-field">__________</span></div>
-                <div>Имя: <span class="empty-field">__________</span></div>
-            </div>
-        </div>
-
-        <!-- Преступление любви -->
-        <div class="crime-section">
-            <div class="crime-title">ПРЕСТУПЛЕНИЕ ЛЮБВИ</div>
-            <div class="crime-number">НАРУШЕНИЕ 42682</div>
-            <div class="crime-description">
-                Действуя по предварительному взаимному согласию, вступили в сговор с целью создания семьи, совместного ведения хозяйства и пожизненного союза.
-            </div>
-            <div class="circumstances-title">В ходе проверки выявлены следующие обстоятельства:</div>
-            <ul class="circumstances-list">
-                <li>незаконное завладение сердцем;</li>
-                <li>систематическое присутствие в мыслях;</li>
-                <li>планирование совместного будущего;</li>
-                <li>намерение обменяться кольцами;</li>
-                <li>отсутствие сопротивления задержанию.</li>
-            </ul>
-            <div class="resolution">
-                <strong>[СОСТАНОВЛЕНО]</strong><br>
-                Назначить процедуру официального бракосочетания на «26» июля 2026 г.
-            </div>
-        </div>
-
-        <!-- Фотогалерея -->
-        <div class="photo-gallery">
-            <div class="photo-frame">
-                <img src="assets/photos/couple-1.jpg" alt="Фото задержанных">
-            </div>
-            <div class="photo-frame">
-                <img src="assets/photos/couple-2.jpg" alt="Фото места проведения">
-            </div>
-        </div>
-
-        <!-- I. МЕСТО ПРОВЕДЕНИЯ -->
-        <div class="protocol-section">
-            <div class="section-title">I. МЕСТО ПРОВЕДЕНИЯ ПРОЦЕССУАЛЬНЫХ ДЕЙСТВИЙ</div>
-            <div class="section-content">
-                Торжественное празднование задержания состоится по адресу:<br>
-                <strong>"Замечаний вам" Спикеры</strong><br>
-                KAT DEMCHENKOO
-            </div>
-        </div>
-
-        <!-- II. ПРОГРАММА -->
-        <div class="protocol-section">
-            <div class="section-title">II. ПРОГРАММА ПРОЦЕССУАЛЬНЫХ ДЕЙСТВИЙ</div>
-            <div class="section-content">
-                <div id="programList"></div>
-            </div>
-        </div>
-
-        <!-- III. ФОРМА ОДЕЖДЫ -->
-        <div class="protocol-section">
-            <div class="section-title">III. ФОРМА ОДЕЖДЫ ДЛЯ ПОНЯТЫХ (ДРЕСС-КОД)</div>
-            <div class="section-content">
-                В целях соблюдения праздничной дисциплины предписывается:<br>
-                стиль классический, цветовая директива от бежевых до шоколадных оттенков.
-            </div>
-        </div>
-
-        <!-- IV. ПОРЯДОК ПЕРЕДАЧИ -->
-        <div class="protocol-section">
-            <div class="section-title">IV. ПОРЯДОК ПЕРЕДАЧИ МАТЕРИАЛЬНЫХ ДОКАЗАТЕЛЬСТВ</div>
-            <div class="section-content">
-                В ходе предварительной проверки установлено, что молодая семья обеспечена предметами быта.<br>
-                В связи с этим разрешается передача подарков исключительно в денежной форме.
-                <br><br>
-                Средства будут направлены на развитие совместной стратегии и укрепление материально-технической базы семьи.
-                <br><br>
-                Передача цветочной продукции не требуется. Жизненный цикл букетов ограничен, логистические издержки неоправданны.<br>
-                Рекомендуется иметь при себе денежные средства для участия в развлекательных мероприятиях, предусмотренных программой.
-            </div>
-        </div>
-
-        <!-- V. ДОПОЛНИТЕЛЬНЫЕ РАСПОРЯЖЕНИЯ -->
-        <div class="protocol-section">
-            <div class="section-title">V. ДОПОЛНИТЕЛЬНЫЕ РАСПОРЯЖЕНИЯ</div>
-            <div class="section-content">
-                1. В целях соблюдения регламента мероприятия и обеспечения контролируемой праздничной обстановки постановлено: лица, не достигшие совершеннолетия, к участию в мероприятии не привлекаются. Присутствие детей не предусмотрено форматом операции.
-            </div>
-        </div>
-
-        <!-- Форма для гостей -->
-        <div class="protocol-section guest-form">
-            <div class="section-title">VI. ЗАПОЛНЯЕТСЯ НА КАЖДОГО ПОНЯТОГО ПЕРСОНАЛЬНО</div>
-            <div class="form-group">
-                <label for="guestName">ФИО задерживаемого гостя:</label>
-                <input type="text" id="guestName" placeholder="ФАМИЛИЯ ИМЯ ОТЧЕСТВО">
-                <button id="addGuestBtn" class="protocol-btn">Внести в протокол</button>
-            </div>
-            <div id="guestListDisplay" class="guest-list"></div>
-        </div>
-
-        <!-- Подписи -->
-        <div class="protocol-section">
-            <div class="section-title">VII. ПОДПИСИ СТОРОН</div>
-            <div class="signatures">
-                <div class="signature-line">
-                    Задержанный: _______________ /<span id="signGroom">Кабель И.О.</span>/
-                </div>
-                <div class="signature-line">
-                    Задержанная: _______________ /<span id="signBride">Фамилия И.О.</span>/
-                </div>
-                <div class="signature-line">
-                    Должностное лицо (тамада): _______________ /Свидетель/
-                </div>
-            </div>
-        </div>
-
-        <!-- Музыка с кнопкой-динамиком -->
-        <div class="music-control">
-            <button id="musicToggleBtn" class="music-toggle-btn">🔊</button>
-            <audio id="protocolMusic" loop>
-                <source src="assets/music/protocol.mp3" type="audio/mpeg">
-            </audio>
-        </div>
+        <!-- Элемент для тени при перелистывании -->
+        <div id="flipShadow" class="flip-shadow"></div>
     </div>
 
     <script src="js/main.js"></script>
