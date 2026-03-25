@@ -277,12 +277,12 @@ body {
     min-width: 250px;
 }
 
-/* Фото жениха */
+/* Фото жениха и невесты — текст слева, фото справа */
 .officer-with-photo {
     display: flex;
     gap: 20px;
-    align-items: center;
-    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-wrap: nowrap;
     margin: 20px 0;
 }
 
@@ -292,7 +292,7 @@ body {
 
 .officer-photo {
     flex: 1;
-    text-align: center;
+    text-align: right;
 }
 
 .officer-photo img {
@@ -303,6 +303,43 @@ body {
     border: 1px solid #ddd;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     object-fit: cover;
+}
+
+/* Для телефонов — фото остаётся справа, текст слева */
+@media (max-width: 768px) {
+    .officer-with-photo {
+        flex-wrap: nowrap;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .officer-photo {
+        text-align: right;
+        flex-shrink: 0;
+    }
+    
+    .officer-photo img {
+        max-width: 90px;
+    }
+    
+    .officer-info {
+        flex: 1;
+    }
+    
+    .officer-text {
+        font-size: 12px;
+    }
+    
+    .name-line {
+        font-size: 12px;
+        gap: 5px;
+    }
+    
+    .square-field {
+        font-size: 11px;
+        padding: 3px 6px;
+        min-width: auto;
+    }
 }
 
 .officer-section {
@@ -326,27 +363,6 @@ body {
     align-items: baseline;
     flex-wrap: wrap;
     gap: 8px;
-}
-
-/* Нарождение */
-.birth-section {
-    margin: 20px 0;
-    padding: 15px 0;
-    text-align: center;
-}
-
-.birth-line {
-    font-size: 18px;
-    font-weight: bold;
-    letter-spacing: 3px;
-}
-
-.birth-names {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
 }
 
 .empty-field {
