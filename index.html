@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Личное дело №001 | Протокол задержания</title>
+    <title>Личное дело №007 | Протокол задержания</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -12,7 +12,7 @@
         <!-- Страница 1 (передняя) -->
         <div id="page1" class="page page-front">
             <div class="page-inner">
-                <div class="case-number-main">Личное дело № 001</div>
+                <div class="case-number-main">Личное дело № 007</div>
                 <div class="case-title-main">о задержании гражданки<br>с целью последующего бракосочетания</div>
                 <button id="openCaseBtn" class="stamp-btn">ОТКРЫТО</button>
             </div>
@@ -29,15 +29,9 @@
 
                     <div class="stamp-main">
                         ВЕЩЕСТВЕННОЕ ДОКАЗАТЕЛЬСТВО<br>
-                        26.06.2026<br>
-                        № 001/42682<br>
+                        06.06.2026<br>
+                        № 007/06062026<br>
                         НЕ ВСКРЫВАТЬ!
-                    </div>
-
-                    <div class="personal-case">
-                        <div class="case-number">Личное дело № 001</div>
-                        <div class="case-title">О задержании гражданки с целью последующего бракосочетания</div>
-                        <div class="case-stamp">ОТКРЫТО</div>
                     </div>
 
                     <div class="protocol-header">
@@ -48,14 +42,25 @@
                     </div>
 
                     <div class="officer-section">
-                        <div class="officer-text">Я, уполномоченное лицо, гражданин</div>
-                        <div class="officer-name">
-                            <div class="name-line">ФАМИЛИЯ: <span class="name-value" id="groomSurname">КАБЕЛЬ</span></div>
-                            <div class="name-line">ИМЯ: <span class="name-value" id="groomName">ИМЯ</span></div>
-                            <div class="name-line">ОТЧЕСТВО: <span class="name-value" id="groomPatronymic">ОТЧЕСТВО</span></div>
-                        </div>
-                        <div class="officer-text">Действуя на основании личных намерений, устойчивых чувств и окончательного решения о создании семьи, произвел задержание гражданки:</div>
-                    </div>
+    <div class="officer-with-photo">
+        <div class="officer-info">
+            <div class="officer-text">
+                Я, уполномоченное лицо, гражданин
+            </div>
+            <div class="officer-name">
+                <div class="name-line">ФАМИЛИЯ: <span class="name-value" id="groomSurname">ФАМИЛИЯ</span></div>
+                <div class="name-line">ИМЯ: <span class="name-value" id="groomName">ИМЯ</span></div>
+                <div class="name-line">ОТЧЕСТВО: <span class="name-value" id="groomPatronymic">ОТЧЕСТВО</span></div>
+            </div>
+            <div class="officer-text">
+                Действуя на основании личных намерений, устойчивых чувств и окончательного решения о создании семьи, произвел задержание гражданки:
+            </div>
+        </div>
+        <div class="officer-photo">
+            <img src="assets/photos/groom-photo.jpg" alt="Фото уполномоченного лица">
+        </div>
+    </div>
+</div>
 
                     <div class="couple-names-animation">
                         <div class="name-card name-bride" id="brideName">
@@ -87,7 +92,7 @@
                         </ul>
                         <div class="resolution">
                             <strong>[СОСТАНОВЛЕНО]</strong><br>
-                            Назначить процедуру официального бракосочетания на «26» июля 2026 г.
+                            Назначить процедуру официального бракосочетания на «06» июня 2026 г.
                         </div>
                     </div>
 
@@ -134,7 +139,7 @@
                     <div class="protocol-section">
                         <div class="section-title">VII. ПОДПИСИ СТОРОН</div>
                         <div class="signatures">
-                            <div class="signature-line">Задержанный: _______________ /<span id="signGroom">Кабель И.О.</span>/</div>
+                            <div class="signature-line">Задержанный: _______________ /<span id="signGroom">Фамилия И.О.</span>/</div>
                             <div class="signature-line">Задержанная: _______________ /<span id="signBride">Фамилия И.О.</span>/</div>
                             <div class="signature-line">Должностное лицо: _______________ /Свидетель/</div>
                         </div>

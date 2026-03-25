@@ -450,3 +450,46 @@ body {
     .stamp-btn { width: 180px; height: 54px; font-size: 16px; }
     .typewriter-text { font-size: 24px; }
 }
+/* Фото жениха в блоке уполномоченного лица */
+.officer-with-photo {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.officer-info {
+    flex: 2;
+}
+
+.officer-photo {
+    flex: 1;
+    text-align: center;
+}
+
+.officer-photo img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 12px;
+    border: 0px solid #d4af37;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    object-fit: cover;
+}
+
+/* Для телефонов */
+@media (max-width: 768px) {
+    .officer-with-photo {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .officer-photo img {
+        max-width: 150px;
+    }
+    
+    .officer-name {
+        text-align: left;
+    }
+}
