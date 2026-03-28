@@ -96,7 +96,7 @@ body {
 }
 
 .open-btn-img {
-    width: 200px;
+    width: 300px;
     height: auto;
     cursor: pointer;
     transition: transform 0.2s ease;
