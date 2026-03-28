@@ -749,3 +749,42 @@ body {
         padding: 12px;
     }
 }
+/* Адаптивность для планшета */
+@media (max-width: 768px) {
+    .stamp-container {
+        min-height: 130px;
+    }
+    
+    .stamp-on-text-img {
+        width: 140px;
+    }
+    
+    .stamp-text {
+        font-size: 12px;
+        padding: 15px;
+    }
+    
+    .stamp-overlay {
+        transform: translate(-50%, -50%) rotate(-6deg);
+    }
+}
+
+/* Адаптивность для телефона */
+@media (max-width: 480px) {
+    .stamp-container {
+        min-height: 120px;
+    }
+    
+    .stamp-on-text-img {
+        width: 110px;
+    }
+    
+    .stamp-text {
+        font-size: 11px;
+        padding: 12px;
+    }
+    
+    .stamp-overlay {
+        transform: translate(-50%, -50%) rotate(-5deg);
+    }
+}
