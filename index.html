@@ -42,9 +42,9 @@
                                     Я, уполномоченное лицо, гражданин
                                 </div>
                                 <div class="officer-name">
-                                    <div class="name-line">ФАМИЛИЯ: <span class="square-field" id="groomSurname"></span></div>
-                                    <div class="name-line">ИМЯ: <span class="square-field" id="groomName"></span></div>
-                                    <div class="name-line">ОТЧЕСТВО: <span class="square-field" id="groomPatronymic"></span></div>
+                                    <div class="name-line">ФАМИЛИЯ: <span class="square-field" id="groomSurname">ВОРОНИН</span></div>
+                                    <div class="name-line">ИМЯ: <span class="square-field" id="groomName">РОСТИСЛАВ</span></div>
+                                    <div class="name-line">ОТЧЕСТВО: <span class="square-field" id="groomPatronymic">СЕРГЕЕВИЧ</span></div>
                                 </div>
                                 <div class="officer-text">
                                     Действуя на основании личных намерений, устойчивых чувств и окончательного решения о создании семьи, произвел задержание гражданки:
@@ -64,9 +64,9 @@
                                     Задержанная гражданка
                                 </div>
                                 <div class="officer-name">
-                                    <div class="name-line">ФАМИЛИЯ: <span class="square-field" id="brideSurname"></span></div>
-                                    <div class="name-line">ИМЯ: <span class="square-field" id="brideName"></span></div>
-                                    <div class="name-line">ОТЧЕСТВО: <span class="square-field" id="bridePatronymic"></span></div>
+                                    <div class="name-line">ФАМИЛИЯ: <span class="square-field" id="brideSurname">УСТИНОВА</span></div>
+                                    <div class="name-line">ИМЯ: <span class="square-field" id="brideName">АНАСТАСИЯ</span></div>
+                                    <div class="name-line">ОТЧЕСТВО: <span class="square-field" id="bridePatronymic">МАКСИМОВНА</span></div>
                                 </div>
                                 <div class="officer-text">
                                     Задержана за создание семьи без надлежащего уведомления
@@ -111,14 +111,16 @@
                         </div>
                     </div>
 
-                    <!-- II. ПРОГРАММА -->
+                    <!-- II. ПРОГРАММА С КОЛЬЦАМИ РЯДОМ -->
                     <div class="protocol-section">
                         <div class="section-title">II. ПРОГРАММА ПРОЦЕССУАЛЬНЫХ ДЕЙСТВИЙ</div>
-                        <div class="section-content">
-                            <div id="programList"></div>
-                        </div>
-                        <div class="rings-image">
-                            <img src="assets/photos/rings.png" alt="Кольца">
+                        <div class="program-with-rings">
+                            <div class="program-content">
+                                <div id="programList"></div>
+                            </div>
+                            <div class="rings-image">
+                                <img src="assets/photos/rings.png" alt="Кольца">
+                            </div>
                         </div>
                     </div>
 
@@ -162,32 +164,32 @@
                         
                         <div class="form-group">
                             <label for="guestName">ФИО задерживаемого гостя:</label>
-                            <input type="text" id="guestName" placeholder="ФАМИЛИЯ ИМЯ ОТЧЕСТВО">
-                            <button id="addGuestBtn" class="protocol-btn" disabled>Внести в протокол</button>
+                            <div class="input-button-group">
+                                <input type="text" id="guestName" placeholder="ФАМИЛИЯ ИМЯ ОТЧЕСТВО">
+                                <button id="addGuestBtn" class="protocol-btn" disabled>Внести в протокол</button>
+                            </div>
                         </div>
                         
-                        <div class="confirm-checkbox">
-                            <label class="checkbox-label">
+                        <div class="confirm-checkbox-large">
+                            <label class="checkbox-label-large">
                                 <input type="checkbox" id="confirmCheckbox">
-                                <span class="checkbox-custom"></span>
-                                <span class="checkbox-text">Настоящим подтверждается готовность лично присутствовать при приведении приговора в исполнение и разделить один из важнейших моментов в жизни сторон. Стороны дела будут искренне рады видеть указанного понятого в числе свидетелей создания новой семьи и рассчитывают на активное участие в праздничных действиях и веселье без ограничений. Неявка рассматривается как уклонение от участия в историческом событии.</span>
+                                <span class="checkbox-custom-large"></span>
+                                <span class="checkbox-text-large">Настоящим подтверждается готовность лично присутствовать при приведении приговора в исполнение и разделить один из важнейших моментов в жизни сторон. Стороны дела будут искренне рады видеть указанного понятого в числе свидетелей создания новой семьи и рассчитывают на активное участие в праздничных действиях и веселье без ограничений. Неявка рассматривается как уклонение от участия в историческом событии.</span>
                             </label>
                         </div>
                         
                         <div id="guestListDisplay" class="guest-list"></div>
                     </div>
 
-                    <!-- VI. ВСТУПЛЕНИЕ В СИЛУ -->
-                    <div class="protocol-section">
+                    <!-- VI. ВСТУПЛЕНИЕ В СИЛУ С ПЕЧАТЬЮ НА ТЕКСТЕ -->
+                    <div class="protocol-section stamp-on-text">
                         <div class="section-title">VI. ВСТУПЛЕНИЕ В СИЛУ</div>
-                        <div class="section-content">
-                            Настоящий протокол вступает в силу с момента официального объявления граждан мужем и женой.
+                        <div class="section-content stamp-container">
+                            <div class="stamp-overlay">
+                                <img src="assets/photos/stamp.png" alt="Печать" class="stamp-on-text-img">
+                            </div>
+                            <span class="stamp-text">Настоящий протокол вступает в силу с момента официального объявления граждан мужем и женой.</span>
                         </div>
-                    </div>
-
-                    <!-- КРУГЛАЯ ПЕЧАТЬ (картинка) -->
-                    <div class="round-stamp">
-                        <img src="assets/photos/stamp.png" alt="Печать" class="stamp-img">
                     </div>
 
                 </div>

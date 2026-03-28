@@ -560,3 +560,192 @@ body {
     .color-swatch { width: 30px; height: 30px; }
     .stamp-img { width: 140px; }
 }
+/* Программа с кольцами рядом */
+.program-with-rings {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.program-content {
+    flex: 2;
+}
+
+.rings-image {
+    flex: 1;
+    text-align: center;
+}
+
+.rings-image img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+
+/* Форма с выравниванием по низу */
+.input-button-group {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.form-group label {
+    align-self: flex-start;
+    margin-top: 8px;
+}
+
+/* Чекбокс крупнее, выходит за край */
+.confirm-checkbox-large {
+    margin: 25px 0;
+    padding: 15px;
+    background: white;
+    text-align: left;
+    position: relative;
+}
+
+.checkbox-label-large {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 1.5;
+    font-family: 'JetBrains Mono', monospace;
+    color: #2c2c2c;
+}
+
+.checkbox-label-large input {
+    display: none;
+}
+
+.checkbox-custom-large {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #2c2c2c;
+    background: white;
+    display: inline-block;
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.2s;
+}
+
+.checkbox-label-large input:checked + .checkbox-custom-large::after {
+    content: "✓";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: #8b0000;
+    font-weight: bold;
+}
+
+.checkbox-text-large {
+    flex: 1;
+    color: #2c2c2c;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Печать на тексте */
+.stamp-on-text {
+    position: relative;
+}
+
+.stamp-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+/* Печать на тексте (наклонная) */
+.stamp-overlay {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%) rotate(-12deg);
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0.85;
+}
+
+.stamp-on-text-img {
+    width: 180px;
+    height: auto;
+    display: block;
+}
+
+.stamp-text {
+    position: relative;
+    z-index: 1;
+    display: block;
+    background: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .program-with-rings {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .rings-image {
+        margin-top: 20px;
+    }
+    
+    .rings-image img {
+        max-width: 180px;
+    }
+    
+    .input-button-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .input-button-group input {
+        width: 100%;
+    }
+    
+    .input-button-group button {
+        width: 100%;
+    }
+    
+    .checkbox-custom-large {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .checkbox-label-large input:checked + .checkbox-custom-large::after {
+        font-size: 14px;
+    }
+    
+    .stamp-on-text-img {
+        width: 140px;
+    }
+    
+    .stamp-text {
+        font-size: 12px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .rings-image img {
+        max-width: 150px;
+    }
+    
+    .stamp-on-text-img {
+        width: 120px;
+    }
+    
+    .stamp-text {
+        font-size: 11px;
+        padding: 12px;
+    }
+}

@@ -28,59 +28,6 @@ class ProtocolInvitation {
         this.setupPhotoAnimation();
         this.setupSignatures();
         this.setupCheckboxLogic();
-        this.animateNamesOnScroll();
-    }
-    
-    animateNamesOnScroll() {
-        const groomSurname = document.getElementById('groomSurname');
-        const groomName = document.getElementById('groomName');
-        const groomPatronymic = document.getElementById('groomPatronymic');
-        const brideSurname = document.getElementById('brideSurname');
-        const brideName = document.getElementById('brideName');
-        const bridePatronymic = document.getElementById('bridePatronymic');
-        
-        const groomSurnameText = 'ВОРОНИН';
-        const groomNameText = 'РОСТИСЛАВ';
-        const groomPatronymicText = 'СЕРГЕЕВИЧ';
-        const brideSurnameText = 'УСТИНОВА';
-        const brideNameText = 'АНАСТАСИЯ';
-        const bridePatronymicText = 'МАКСИМОВНА';
-        
-        function typeText(element, text, delay, callback) {
-            if (!element) return;
-            let i = 0;
-            element.textContent = '';
-            function type() {
-                if (i < text.length) {
-                    element.textContent += text[i];
-                    i++;
-                    setTimeout(type, delay);
-                } else if (callback) {
-                    callback();
-                }
-            }
-            type();
-        }
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = entry.target;
-                    if (target.id === 'groomSurname') typeText(target, groomSurnameText, 80);
-                    else if (target.id === 'groomName') setTimeout(() => typeText(target, groomNameText, 80), 300);
-                    else if (target.id === 'groomPatronymic') setTimeout(() => typeText(target, groomPatronymicText, 80), 600);
-                    else if (target.id === 'brideSurname') setTimeout(() => typeText(target, brideSurnameText, 80), 1200);
-                    else if (target.id === 'brideName') setTimeout(() => typeText(target, brideNameText, 80), 1500);
-                    else if (target.id === 'bridePatronymic') setTimeout(() => typeText(target, bridePatronymicText, 80), 1800);
-                    observer.unobserve(target);
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        ['groomSurname', 'groomName', 'groomPatronymic', 'brideSurname', 'brideName', 'bridePatronymic'].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) observer.observe(el);
-        });
     }
     
     setupOpenButton() {
@@ -110,7 +57,6 @@ class ProtocolInvitation {
                         this.startMusicOnPage2();
                         setTimeout(() => {
                             this.setupCheckboxLogic();
-                            this.animateNamesOnScroll();
                         }, 300);
                     }, 500);
                 }, 500);
@@ -244,7 +190,14 @@ class ProtocolInvitation {
             if (el) el.textContent = value;
         };
         
+        setText('groomSurname', groom.surname);
+        setText('groomName', groom.name);
+        setText('groomPatronymic', groom.patronymic);
         setText('signGroom', `${groom.surname} ${groom.name[0]}.${groom.patronymic[0]}.`);
+        
+        setText('brideSurname', bride.surname);
+        setText('brideName', bride.name);
+        setText('bridePatronymic', bride.patronymic);
         setText('signBride', `${bride.surname} ${bride.name[0]}.${bride.patronymic[0]}.`);
     }
     
