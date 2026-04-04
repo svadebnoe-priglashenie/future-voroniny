@@ -8,15 +8,19 @@ body {
     background: white;
     font-family: 'JetBrains Mono', monospace;
     min-height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .book-container {
     position: relative;
     width: 100%;
+    max-width: 100vw;
     min-height: 100vh;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     perspective: 2000px;
+    overflow-x: hidden;
 }
 
 .page {
@@ -31,11 +35,9 @@ body {
 
 .page-inner {
     padding: 20px;
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 auto;
 }
 
 .page-front {
@@ -68,7 +70,8 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 900px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
 }
@@ -111,28 +114,41 @@ body {
 
 .music-glass-btn {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    background: rgba(0,0,0,0.05);
-    border: none;
-    font-size: 28px;
-    cursor: pointer;
-    width: 48px;
-    height: 48px;
+    top: 12px;
+    right: 12px;
+
+    width: 46px;
+    height: 46px;
+
     border-radius: 50%;
+    border: none;
+
+    font-size: 22px;
+    cursor: pointer;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(4px);
-    z-index: 1000;
-    opacity: 0.5;
-    transition: all 0.3s;
-}
 
+    background: rgba(255,255,255,0.35);
+    backdrop-filter: blur(8px);
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+    opacity: 0.45;
+    transition: all 0.25s ease;
+
+    z-index: 5000;
+}
 .music-glass-btn:hover {
     opacity: 1;
-    background: rgba(0,0,0,0.1);
+    transform: scale(1.08);
 }
+
+.music-glass-btn:active {
+    transform: scale(0.95);
+}
+
 
 .protocol-title {
     text-align: center;
@@ -190,11 +206,12 @@ body {
 
 .officer-photo img {
     width: 100%;
-    max-width: 153px;
+    max-width: 150px; /* регулируй размер здесь */
     height: auto;
     border: none;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
     object-fit: cover;
+    border-radius: 6px;
 }
 
 .officer-section {
@@ -273,7 +290,7 @@ body {
     content: "•";
     position: absolute;
     left: 0;
-    color: #8b0000;
+    color: #333;
     font-size: 12px;
 }
 
@@ -651,6 +668,13 @@ body {
     .crime-description { font-size: 12px; }
     .circumstances-list li { font-size: 12px; }
     .resolution { font-size: 12px; text-align: left; }
+    .music-glass-btn {
+    top: 8px;
+    right: 8px;
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+}
 }
 
 @media (max-width: 480px) {
@@ -665,4 +689,16 @@ body {
     .stamp-text { font-size: 11px; padding: 12px; }
     .crime-description { font-size: 11px; }
     .circumstances-list li { font-size: 11px; }
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+* {
+    max-width: 100%;
 }
