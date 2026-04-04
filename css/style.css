@@ -220,22 +220,25 @@ body {
     gap: 8px;
 }
 
+/* ПРЕСТУПЛЕНИЕ ЛЮБВИ — текст уменьшен, выравнивание по левому краю */
 .crime-section {
     margin: 20px 0;
     padding: 15px 0;
-    text-align: center;
+    text-align: left;
 }
 
 .crime-title {
     font-size: 24px;
     font-weight: bold;
     letter-spacing: 6px;
+    text-align: center;
 }
 
 .crime-number {
     font-size: 14px;
     margin: 10px 0;
     color: #555;
+    text-align: center;
 }
 
 .crime-description {
@@ -254,11 +257,44 @@ body {
     text-align: left;
     margin-left: 20px;
     margin-top: 10px;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.circumstances-list li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.circumstances-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #8b0000;
+    font-size: 12px;
 }
 
 .resolution {
     margin-top: 15px;
     padding-top: 10px;
+    text-align: left;
+}
+
+.resolution strong {
+    display: block;
+    text-align: center;
+}
+
+.resolution br {
+    display: none;
+}
+
+.resolution-line {
+    margin-top: 15px;
+    border-top: 1px dashed #ccc;
 }
 
 .address-field {
@@ -305,7 +341,7 @@ body {
 
 .rings-image img {
     width: 100%;
-    max-width: 340px;
+    max-width: 280px;
     height: auto;
     border: none;
     background: transparent;
@@ -490,7 +526,7 @@ body {
 }
 
 .stamp-on-text-img {
-    width: 180px;
+    width: 160px;
     height: auto;
     display: block;
 }
@@ -597,7 +633,7 @@ body {
     .officer-photo { text-align: right; flex-shrink: 0; }
     .officer-photo img { max-width: 95px; }
     .square-field { font-size: 11px; padding: 3px 6px; min-width: auto; }
-    .rings-image img { max-width: 280px; }
+    .rings-image img { max-width: 220px; }
     .address-field { font-size: 12px; padding: 4px 8px; }
     .color-swatch { width: 35px; height: 35px; }
     .checkbox-text-large { font-size: 11px; }
@@ -606,12 +642,15 @@ body {
     .input-button-group input { width: 100%; }
     .input-button-group button { width: 100%; }
     .stamp-container { min-height: 130px; }
-    .stamp-on-text-img { width: 140px; }
+    .stamp-on-text-img { width: 120px; }
     .stamp-text { font-size: 12px; padding: 15px; }
     .popup-container { width: 85%; padding: 25px 20px; }
     .popup-title { font-size: 16px; }
     .popup-text { font-size: 12px; }
     .popup-btn { padding: 10px 20px; font-size: 10px; }
+    .crime-description { font-size: 12px; }
+    .circumstances-list li { font-size: 12px; }
+    .resolution { font-size: 12px; text-align: left; }
 }
 
 @media (max-width: 480px) {
@@ -620,8 +659,10 @@ body {
     .protocol-main-text { font-size: 26px; }
     .protocol-sub-text { font-size: 14px; }
     .officer-photo img { max-width: 75px; }
-    .rings-image img { max-width: 220px; }
+    .rings-image img { max-width: 180px; }
     .color-swatch { width: 30px; height: 30px; }
-    .stamp-on-text-img { width: 120px; }
+    .stamp-on-text-img { width: 100px; }
     .stamp-text { font-size: 11px; padding: 12px; }
+    .crime-description { font-size: 11px; }
+    .circumstances-list li { font-size: 11px; }
 }
