@@ -191,7 +191,7 @@ body {
 
 .officer-photo img {
     width: 100%;
-    max-width: 150px;   /* ← УВЕЛИЧЬ ЗДЕСЬ (было 153px) */
+    max-width: 150px;   
     height: auto;
     border: none;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -684,4 +684,16 @@ body {
 .rings-image {
     order: 1;
     margin-top: 15px;
+}
+/* ТЕСТ: очень маленькие кольца на телефоне */
+@media (max-width: 768px) {
+    .rings-image img {
+        max-width: 80px !important;
+        width: 80px !important;
+        height: auto !important;
+        display: block !important;
+        margin: 0 auto !important;
+        border: 2px solid red !important;   /* красная рамка для проверки */
+        background: yellow !important;      /* жёлтый фон для проверки */
+    }
 }
