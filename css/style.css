@@ -854,3 +854,11 @@ body {
         transform: rotate(9deg) !important;
     }
 }
+@media (max-width: 768px) {
+    .open-btn-img {
+        width: 300px !important;
+        max-width: 90vw !important;
+        margin-left: 20px !important;
+        margin-top: -1px !important;   /* ← отрицательное = выше */
+    }
+}
