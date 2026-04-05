@@ -297,12 +297,40 @@ body {
 .resolution {
     margin-top: 15px;
     padding-top: 10px;
+    padding-bottom: 18px;
     text-align: left;
+    border-bottom: 1px dashed rgba(0,0,0,0.08);
 }
+.resolution-list, 
+.violations-list {
+    margin-top: 10px;       /* расстояние сверху */
+    margin-left: 0;         /* обнуляем левый отступ */
+    padding-left: 20px;     /* отступ для точек/пунктов */
+    list-style: none;       /* убираем стандартные точки */
+}
+
+.resolution-list li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    line-height: 1.4;
+    list-style: none;
+}
+
+.resolution-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    
+}
+
 
 .resolution strong {
     display: block;
     text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
 }
 
 .resolution br {
@@ -312,6 +340,12 @@ body {
 .resolution-line {
     margin-top: 15px;
     border-top: 1px dashed #ccc;
+}
+.resolution-title {
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
 }
 
 .address-field {
