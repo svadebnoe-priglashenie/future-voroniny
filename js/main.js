@@ -255,19 +255,18 @@ class ProtocolInvitation {
         } catch(e) { this.guests = []; }
     }
 
-    sendToTelegram(name) {
-        const BOT_TOKEN = 'ВАШ_ТОКЕН';
-        const CHAT_ID = 'ВАШ_CHAT_ID';
-        if (!BOT_TOKEN || BOT_TOKEN === 'ВАШ_ТОКЕН') return;
+  sendToTelegram(name) {
+    const BOT_TOKEN = '8769437407:AAF6pTr3N_Lsz__HWc4uMYkbUWQ0M4pjQ44';
+    const CHAT_ID = '-5226104460';   // твой chat_id группы
 
-        const message = `🟢 НОВЫЙ ГОСТЬ!\n\n👤 ФИО: ${name}\n📅 Дата: ${new Date().toLocaleString('ru-RU')}`;
-        fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: CHAT_ID, text: message })
-        }).catch(() => {});
-    }
+    const message = `🟢 НОВЫЙ ГОСТЬ!\n\n👤 ФИО: ${name}\n📅 Дата: ${new Date().toLocaleString('ru-RU')}`;
 
+    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: CHAT_ID, text: message })
+    }).catch(() => {});
+}
     playBeep() {
         try {
             const ctx = new (window.AudioContext || window.webkitAudioContext)();
