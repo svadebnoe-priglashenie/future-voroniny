@@ -191,7 +191,7 @@ body {
 
 .officer-photo img {
     width: 100%;
-    max-width: 150px;   
+    max-width: 200px;   
     height: auto;
     border: none;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
