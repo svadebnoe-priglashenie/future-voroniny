@@ -207,6 +207,8 @@ class ProtocolInvitation {
 
         this.guests.push({ id: Date.now(), name: fullName, date: new Date().toLocaleString('ru-RU') });
         this.renderGuestList();
+
+        // Отправка в Telegram
         this.sendToTelegram(fullName);
 
         input.value = '';
@@ -214,8 +216,6 @@ class ProtocolInvitation {
         const addBtn = document.getElementById('addGuestBtn');
         if (addBtn) addBtn.disabled = true;
         if (!this.isMusicPlaying) this.playBeep();
-
-        alert(`Спасибо, ${fullName}! Ждём вас 06.06.2026!`);
     }
 
     validateName(name) {
@@ -256,17 +256,17 @@ class ProtocolInvitation {
     }
 
     sendToTelegram(name) {
-    const BOT_TOKEN = '8769437407:AAF6pTr3N_Lsz__HWc4uMYkbUWQ0M4pjQ44';
-    const CHAT_ID = '-5226104460';
+        const BOT_TOKEN = '8769437407:AAF6pTr3N_Lsz__HWc4uMYkbUWQ0M4pjQ44';
+        const CHAT_ID = '-5226104460';
 
-    const message = `🟢 НОВЫЙ ГОСТЬ!\n\n👤 ФИО: ${name}\n📅 Дата: ${new Date().toLocaleString('ru-RU')}`;
+        const message = `🟢 НОВЫЙ ГОСТЬ!\n\n👤 ФИО: ${name}\n📅 Дата: ${new Date().toLocaleString('ru-RU')}`;
 
-    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: CHAT_ID, text: message })
-    }).catch(() => {});
-}
+        fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: CHAT_ID, text: message })
+        }).catch(() => {});
+    }
 
     playBeep() {
         try {
