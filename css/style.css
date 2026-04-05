@@ -500,9 +500,9 @@ body {
 
 .stamp-overlay {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-8deg);
+    top: 91%;
+    left: 90%;
+    transform: translate(-50%, -50%) rotate(-19deg);
     pointer-events: none;
     z-index: 5;
     opacity: 0.85;
@@ -818,4 +818,11 @@ body {
     left: 4px;
     color: #aaa;
     font-size: 12px;
+}
+.final-sentence {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 12px;
+    color: #000000;
 }
