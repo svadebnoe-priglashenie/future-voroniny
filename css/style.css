@@ -741,7 +741,7 @@ body {
     /* === 5. ПЕЧАТЬ ВНИЗУ === */
     .stamp-overlay {
         top: 60%;
-        left: 100%;
+        left: 90%;
         transform: translate(-50%, -50%) rotate(-8deg);
     }
     .stamp-on-text-img {
