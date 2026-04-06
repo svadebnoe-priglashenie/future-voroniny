@@ -260,7 +260,7 @@ class ProtocolInvitation {
     const CHAT_ID = '-1003773639993';
     const WORKER_URL = 'https://tg-proxy.hsch29rtw2.workers.dev';
 
-    const message = `🟢 НОВЫЙ ГОСТЬ!\n\n👤 ФИО: ${name}\n📅 Дата: ${new Date().toLocaleString('ru-RU')}`;
+    const message = `🟢 Гость задержан\n\n👤 ФИО: ${name}\n📅 Дата: ${new Date().toLocaleString('ru-RU')}`;
 
     fetch(`${WORKER_URL}/bot${BOT_TOKEN}/sendMessage`, {
         method: 'POST',
