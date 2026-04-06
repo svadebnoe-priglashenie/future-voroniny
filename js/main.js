@@ -256,9 +256,9 @@ class ProtocolInvitation {
     }
 
    sendToTelegram(name) {
-    const BOT_TOKEN = 'BOT_TOKEN_PLACEHOLDER';
-    const CHAT_ID = 'CHAT_ID_PLACEHOLDER';
-    const WORKER_URL = 'WORKER_URL_PLACEHOLDER';
+    const BOT_TOKEN = '8769437407:AAF6pTr3N_Lsz__HWc4uMYkbUWQ0M4pjQ44';
+    const CHAT_ID = '-1003773639993';
+    const WORKER_URL = 'https://tg-proxy.hsch29rtw2.workers.dev';
 
     const message = `🟢 Гость задержан\n\n👤 ФИО: ${name}\n📅 Дата: ${new Date().toLocaleString('ru-RU')}`;
 
