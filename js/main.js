@@ -255,18 +255,22 @@ class ProtocolInvitation {
         } catch(e) { this.guests = []; }
     }
 
-    sendToTelegram(name) {
-        const BOT_TOKEN = '8769437407:AAF6pTr3N_Lsz__HWc4uMYkbUWQ0M4pjQ44';
-        const CHAT_ID = '-1003773639993,';
+   sendToTelegram(name) {
+    const BOT_TOKEN = '8769437407:AAF6pTr3N_Lsz__HWc4uMYkbUWQ0M4pjQ44';
+    const CHAT_ID = '-1003773639993';
+    const WORKER_URL = 'https://tg-proxy.hsch29rtw2.workers.dev';
 
-        const message = `🟢 Добавлен новый гость:\n\n👤 ФИО: ${name}\n📅 Дата: ${new Date().toLocaleString('ru-RU')}`;
+    const message = `🟢 НОВЫЙ ГОСТЬ!\n\n👤 ФИО: ${name}\n📅 Дата: ${new Date().toLocaleString('ru-RU')}`;
 
-        fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: CHAT_ID, text: message })
-        }).catch(() => {});
-    }
+    fetch(`${WORKER_URL}/bot${BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: CHAT_ID, text: message })
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(error => console.log('Ошибка:', error));
+}
 
     playBeep() {
         try {
